@@ -13,10 +13,5 @@ public class EmojiMakerInspector : Editor
         {
             myTarget.Slice();
         }
-        bool testUnicode = GUILayout.Button("Test Unicode");
-        if (testUnicode)
-        {
-            myTarget.TestUnicode();
-        }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Text;
 using Newtonsoft.Json;
 using RTLEmoji.Scripts;
 using TMPro;
@@ -19,7 +21,7 @@ public class EmojiMaker : ScriptableObject
     public int sliceSize;
     public int padding;
 
-    [Header("Unicode")] public TMP_SpriteAsset spriteAsset;
+    [Header("SpriteAsset")] public TMP_SpriteAsset spriteAsset;
 
     public void Slice()
     {
@@ -32,20 +34,15 @@ public class EmojiMaker : ScriptableObject
         importer.spritePixelsPerUnit = 1;
         List<SpriteMetaData> metaData = new List<SpriteMetaData>();
         var datas = JsonConvert.DeserializeObject<EmojiData[]>(ta.text);
-        var utfData = JsonConvert.DeserializeObject<List<UTFData>>(utfText.text);
 
         foreach (var data in datas)
         {
-            var bytes = GetByte(data.unified, utfData);
-            if (bytes == null)
-            {
-                bytes = data.short_name;
-            }
+            var utfName = GetUTF8(data.unified);
             SpriteMetaData meta = new SpriteMetaData
             {
                 rect = new Rect((sliceSize + padding) * data.sheet_x,
                     imageSize - sliceSize - (sliceSize + padding) * data.sheet_y, sliceSize, sliceSize),
-                name = bytes
+                name = utfName
             };
             metaData.Add(meta);
         }
@@ -54,34 +51,37 @@ public class EmojiMaker : ScriptableObject
         importer.SaveAndReimport();
     }
 
-
-    public void TestUnicode()
+    private string GetUTF8(string unified)
     {
-        TextAsset ta = text;
-        var datas = JsonConvert.DeserializeObject<EmojiData[]>(ta.text);
-        var utfData = JsonConvert.DeserializeObject<List<UTFData>>(utfText.text);
-        foreach (var data in datas)
+        var splitStrings = unified.Split('-');
+        StringBuilder sb = new StringBuilder();
+        foreach (var splitString in splitStrings)
         {
-            GetByte(data.unified, utfData);
+            int unicode = int.Parse(splitString,NumberStyles.HexNumber);
+            var x = char.ConvertFromUtf32(unicode);
+            var enc = new UTF8Encoding();
+            var bytes = enc.GetBytes(x);
+            var hex = new StringBuilder();
+            foreach (var b in bytes)
+            {
+                hex.AppendFormat("{0:x2}", b);
+            }
+            sb.Append(hex);
         }
+
+        return sb.ToString().ToUpper();
     }
 
-    public string GetByte(string unicode,List<UTFData> utfData)
+    public void FixUnicode()
     {
-        var upperUnicode = unicode.ToUpper();
-        foreach (var data in utfData)
+        var datas = JsonConvert.DeserializeObject<EmojiData[]>(text.text);
+
+        for (int i = 0; i < spriteAsset.spriteCharacterTable.Count; i++)
         {
-            var currentUnicode = data.Unicode;
-            currentUnicode.Replace(" ", "-");
-            if (upperUnicode == currentUnicode)
+            if (!datas[i].unified.Contains("-"))
             {
-                Debug.Log(upperUnicode+" -OK- " + data.Bytes);
-                return data.Bytes;
+                spriteAsset.spriteCharacterTable[i].unicode = Convert.ToUInt32(datas[i].unified);
             }
         }
-
-        return null;
     }
-
-
 }
