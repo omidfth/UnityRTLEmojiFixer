@@ -13,5 +13,11 @@ public class EmojiMakerInspector : Editor
         {
             myTarget.Slice();
         }
+
+        bool fixUnicode = GUILayout.Button("Fix Unicode");
+        if (fixUnicode)
+        {
+            myTarget.FixUnicode();
+        }
     }
 }
