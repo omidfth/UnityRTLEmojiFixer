@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using RTLTMPro;
 using TMPro;
@@ -23,17 +24,16 @@ namespace RTLEmoji.Scripts
         {
             if (_textMeshPro != null)
             {
+                
                 string hexString = StringToHex(_textMeshPro.OriginalText);
                 print(hexString);
+
                 var property = GetSpriteProperty(hexString);
                 if (property.Item1 > -1)
                 {
                     var emojiUnicode = property.Item2.Replace("-", "");
-                    print(emojiUnicode);
                     string emoji = HexToString(emojiUnicode);
-                    print("pre: " + _textMeshPro.text);
                     _textMeshPro.text = _textMeshPro.OriginalText.Replace(emoji, $"<sprite={property.Item1}>");
-                    print(_textMeshPro.text);
                     Fix();
                 }
             }
@@ -43,29 +43,29 @@ namespace RTLEmoji.Scripts
         {
             for (int i = 0; i < TMP_Settings.defaultSpriteAsset.spriteCharacterTable.Count; i++)
             {
-                if (hex.Contains(TMP_Settings.defaultSpriteAsset.spriteCharacterTable[i].name))
+                var spriteName = TMP_Settings.defaultSpriteAsset.spriteCharacterTable[i].name;
+                if (hex.Contains(spriteName))
                 {
-                    return (i,TMP_Settings.defaultSpriteAsset.spriteCharacterTable[i].name);
+                    return (i,spriteName);
                 }
             }
 
             return (-1,"");
         }
-    
-        private string StringToHex(string hexstring)
+
+        private string StringToHex(string str)
         {
             StringBuilder sb = new StringBuilder();
-            foreach (char t in hexstring)
-            { 
-                //Note: X for upper, x for lower case letters
-                sb.Append(Convert.ToInt32(t).ToString("X4"));
-                sb.Append("-");
+            byte[] inputByte = Encoding.UTF8.GetBytes(str);
+            foreach (byte b in inputByte)
+            {
+                sb.Append(string.Format("{0:x2}", b));
             }
 
-            sb.Remove(sb.Length - 1, 1);
-            return sb.ToString();
+            return sb.ToString().ToUpper();
         }
-    
+        
+
         private string HexToString(string hexString)
         {
             var bytes = new byte[hexString.Length / 2];
@@ -73,8 +73,7 @@ namespace RTLEmoji.Scripts
             {
                 bytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
             }
-
-            return Encoding.BigEndianUnicode.GetString(bytes);
+            return Encoding.UTF8.GetString(bytes);
         }
     }
 }

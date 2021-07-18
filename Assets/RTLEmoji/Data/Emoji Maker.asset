@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texture: {fileID: 2800000, guid: e6967a952a4f28c44830f5048c6c6c47, type: 3}
   text: {fileID: 4900000, guid: 747096d2c6a48b640a1e8f152969be06, type: 3}
+  utfText: {fileID: 4900000, guid: 0aeb397ed976ca145968fdea2494efff, type: 3}
   imageSize: 3960
   sliceSize: 64
   padding: 2
-  spriteAsset: {fileID: 11400000, guid: eea8cea05bc12144abae33a350a84bd2, type: 2}
+  spriteAsset: {fileID: 11400000, guid: ec8ea1d7fdcfe114883f704b1e8087da, type: 2}
