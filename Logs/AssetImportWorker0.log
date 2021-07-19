@@ -1,0 +1,109 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.6f1 (338bb68529b2) revision 3378102'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Enterprise; OS build 19043.1110; Version 2009; 64bit' Language: 'en' Physical Memory: 16268 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Editor\2020.3.6f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Projects/Unity/UnityRTLEmojiFixer
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+49440
+Successfully changed project path to: D:/Projects/Unity/UnityRTLEmojiFixer
+D:/Projects/Unity/UnityRTLEmojiFixer
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 30.55 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.6f1 (338bb68529b2)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Editor/2020.3.6f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Projects/Unity/UnityRTLEmojiFixer/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c8d)
+    Vendor:   
+    VRAM:     4021 MB
+    Driver:   27.21.14.6089
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Editor/2020.3.6f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Editor/2020.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Editor/2020.3.6f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56740
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Editor/2020.3.6f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Editor/2020.3.6f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Editor/2020.3.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Editor/2020.3.6f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.004019 seconds.
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 29.80 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.559 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.002451 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.083 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1249 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 63.9 MB.
+System memory in use after: 64.0 MB.
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 1694.
+Total: 3.029100 ms (FindLiveObjects: 0.694100 ms CreateObjectMapping: 0.198300 ms MarkObjects: 2.032800 ms  DeleteObjects: 0.102500 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/RTLEmoji/Data/Emoji Maker.asset
+  artifactKey: Guid(b8e191930d4990b4e8b2779508a18884) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RTLEmoji/Data/Emoji Maker.asset using Guid(b8e191930d4990b4e8b2779508a18884) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dec05b229fcd5c53f4ca0037efb7d02e') in 0.154588 seconds
+  Import took 0.156985 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000232 seconds.
+  path: Assets/RTLEmoji/Data/sheet_google_64.png
+  artifactKey: Guid(e6967a952a4f28c44830f5048c6c6c47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RTLEmoji/Data/sheet_google_64.png using Guid(e6967a952a4f28c44830f5048c6c6c47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5777e5d6b6306a678bc3cfacf73b1189') in 2.320096 seconds
+  Import took 2.330771 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.831056 seconds.
+  path: Assets/TextMesh Pro/Resources/Sprite Assets/sheet_google_64.asset
+  artifactKey: Guid(fde61b4f4fbb78248bec769b93725d44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Sprite Assets/sheet_google_64.asset using Guid(fde61b4f4fbb78248bec769b93725d44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f067b982822255f99ee35ed9c09f08da') in 0.121296 seconds
+  Import took 0.132481 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.004219 seconds.
+  path: Assets/TextMesh Pro/Resources/Sprite Assets/sheet_google_64.asset
+  artifactKey: Guid(fde61b4f4fbb78248bec769b93725d44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Resources/Sprite Assets/sheet_google_64.asset using Guid(fde61b4f4fbb78248bec769b93725d44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f067b982822255f99ee35ed9c09f08da') in 0.114201 seconds
+  Import took 0.125040 seconds .
+

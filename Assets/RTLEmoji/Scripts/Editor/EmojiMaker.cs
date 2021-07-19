@@ -11,7 +11,6 @@ using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Emoji Maker", menuName = "RTLEmoji")]
-
 public class EmojiMaker : ScriptableObject
 {
     public Texture2D texture;
@@ -57,7 +56,7 @@ public class EmojiMaker : ScriptableObject
         StringBuilder sb = new StringBuilder();
         foreach (var splitString in splitStrings)
         {
-            int unicode = int.Parse(splitString,NumberStyles.HexNumber);
+            int unicode = int.Parse(splitString, NumberStyles.HexNumber);
             var x = char.ConvertFromUtf32(unicode);
             var enc = new UTF8Encoding();
             var bytes = enc.GetBytes(x);
@@ -66,6 +65,7 @@ public class EmojiMaker : ScriptableObject
             {
                 hex.AppendFormat("{0:x2}", b);
             }
+
             sb.Append(hex);
         }
 
@@ -75,12 +75,13 @@ public class EmojiMaker : ScriptableObject
     public void FixUnicode()
     {
         var datas = JsonConvert.DeserializeObject<EmojiData[]>(text.text);
-
-        for (int i = 0; i < spriteAsset.spriteCharacterTable.Count; i++)
+        foreach (var data in datas)
         {
-            if (!datas[i].unified.Contains("-"))
+            if (!data.unified.Contains("-"))
             {
-                spriteAsset.spriteCharacterTable[i].unicode = Convert.ToUInt32(datas[i].unified);
+                var utfName = GetUTF8(data.unified);
+                var index = spriteAsset.spriteCharacterTable.FindIndex(t => t.name == utfName);
+                spriteAsset.spriteCharacterTable[index].unicode = uint.Parse(data.unified, NumberStyles.HexNumber);
             }
         }
     }

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: sheet_google_64
   m_EditorClassIdentifier: 
   hashCode: -2021006012
-  material: {fileID: 8873075192489433096}
+  material: {fileID: 7889503920517726494}
   materialHashCode: 0
   m_Version: 1.1.0
   m_FaceInfo:
+    m_FaceIndex: 0
     m_FamilyName: 
     m_StyleName: 
     m_PointSize: 0
@@ -38198,7 +38199,7 @@ MonoBehaviour:
     sprite: {fileID: 671914240153964585, guid: e6967a952a4f28c44830f5048c6c6c47, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []
---- !u!21 &8873075192489433096
+--- !u!21 &7889503920517726494
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 1

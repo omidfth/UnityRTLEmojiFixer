@@ -18,4 +18,4 @@ MonoBehaviour:
   imageSize: 3960
   sliceSize: 64
   padding: 2
-  spriteAsset: {fileID: 11400000, guid: ec8ea1d7fdcfe114883f704b1e8087da, type: 2}
+  spriteAsset: {fileID: 11400000, guid: fde61b4f4fbb78248bec769b93725d44, type: 2}
